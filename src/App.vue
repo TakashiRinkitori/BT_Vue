@@ -2,11 +2,11 @@
   <div id="app">
     <Header />
     <nav>
-      <router-link to="/day1" @click="toggleDay1Links">Ngày 1</router-link>
+      <router-link to="/day1" @click="toggleDay1Links">Ngày 1 Vue </router-link>
       <div v-if="showDay1Links">
         <Day1Links @close="showDay1Links = false" /> 
       </div>
-      <router-link to="/day2" @click="toggleDay2Links">Ngày 2</router-link>
+      <router-link to="/day2" @click="toggleDay2Links">Ngày 2 Vue</router-link>
       <div v-if="showDay2Links">
         <Day2Links @close="showDay2Links = false" /> 
       </div>    
@@ -31,7 +31,7 @@ export default {
     Header,
     Footer,
     Day1Links,
-    Day2Links
+    Day2Links,
   },
   data() {
     return {
