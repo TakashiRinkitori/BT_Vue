@@ -63,7 +63,7 @@
                 <p class="card-title"><b>{{ tour.city }}</b></p>
                 <p class="card-text" style="opacity: 70%;">{{ tour.date }}</p>
                 <p class="card-text">{{ tour.description }}</p>
-                <button class="btn btn-dark" @click="openModal">Buy Tickets</button>
+                <button class="btn btn-dark" data-bs-toggle="modal"   data-bs-target="#ticketModal">Buy Tickets</button>
               </div>
             </div>
           </div>
@@ -72,8 +72,7 @@
     </div>
 
     <!-- Ticket Modal -->
-    <div class="modal fade" id="ticketModal" tabindex="-1" aria-labelledby="ticketModalLabel" aria-hidden="true"
-      v-if="modalOpen">
+    <div class="modal fade" id="ticketModal"  tabindex="-1"  aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -89,7 +88,7 @@
           </div>
           <div class="modal-footer">
             <button class="btn btn-primary">PAY <i class="fa fa-check"></i></button>
-            <button type="button" class="btn btn-danger" @click="closeModal">Close <i class="fa fa-remove"></i></button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close <i class="fa fa-remove"></i></button>
           </div>
         </div>
       </div>
@@ -196,8 +195,6 @@ export default {
 }
 
 @media (max-width: 576px) {
-
-  /* Điều chỉnh cho mobile */
   .container {
     margin-left: 0;
     margin-right: 0;
