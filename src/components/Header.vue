@@ -1,55 +1,97 @@
 <template>
     <!-- Navbar -->
-    <div class="w3-top">
-      <div class="w3-bar w3-black w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" @click="toggleNav" title="Toggle Navigation Menu">
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
-        <a href="#band" class="w3-bar-item w3-button w3-padding-large w3-hide-small">BAND</a>
-        <a href="#tour" class="w3-bar-item w3-button w3-padding-large w3-hide-small">TOUR</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
-        <div class="w3-dropdown-hover w3-hide-small">
-          <button class="w3-padding-large w3-button" title="More">MORE <i class="fa fa-caret-down"></i></button>
-          <div class="w3-dropdown-content w3-bar-block w3-card-4">
-            <a href="#" class="w3-bar-item w3-button">Merchandise</a>
-            <a href="#" class="w3-bar-item w3-button">Extras</a>
-            <a href="#" class="w3-bar-item w3-button">Media</a>
-          </div>
+    <div class="container-fluid">
+        <div class="navbar navbar-expand-lg navbar-black bg-black fixed-top">
+            <a class="nav-item nav-link" style="color: white;" href="#" @click="closeNav">HOME</a>
+            <a class="navbar-toggler" type="button" @click="toggleNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div :class="['collapse', 'navbar-collapse', { 'show': navVisible }]" id="navbarNav">
+                <div class="navbar-nav mr-auto">
+                    <a style="padding: 12px 24px; text-align: left;" class="nav-item nav-link" href="#band"
+                        @click="closeNav">BAND</a>
+                    <a style="padding: 12px 24px; text-align: left;" class="nav-item nav-link" href="#tour"
+                        @click="closeNav">TOUR</a>
+                    <a style="padding: 12px 24px; text-align: left;" class="nav-item nav-link" href="#contact"
+                        @click="closeNav">CONTACT</a>
+                    <div class="dropdown">
+                        <a class="nav-item nav-link dropdown-toggle"
+                            style="padding: 12px 24px; color: white; text-align: left;" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            MORE
+                        </a>
+                        <div class="dropdown-menu" style="margin: 0px;">
+                            <a class="dropdown-item" href="#">Merchandise</a>
+                            <a class="dropdown-item" href="#">Extras</a>
+                            <a class="dropdown-item" href="#">Media</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" style="padding-block: 11px; border-radius: 0;" class="btn my-2 my-sm-0 search-btn"
+                    :class="{ 'd-none': navVisible }" @click="closeNav">
+                    <i style="color: aliceblue;" class="fa fa-search"></i>
+                </a>
+            </div>
         </div>
-        <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
-      </div>
     </div>
-  
-    <!-- Navbar on small screens -->
-    <div id="navDemo" class="w3-bar-block w3-black w3-hide w3-top" :class="{ 'w3-show': navVisible }" style="margin-top:46px">
-      <a href="#band" class="w3-bar-item w3-button w3-padding-large" @click="closeNav">BAND</a>
-      <a href="#tour" class="w3-bar-item w3-button w3-padding-large" @click="closeNav">TOUR</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-padding-large" @click="closeNav">CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button w3-padding-large" @click="closeNav">MERCH</a>
-    </div>
-  </template>
-  
-  <script>
-  export default {
+</template>
+
+<script>
+export default {
     name: 'BandHeader',
     data() {
-      return {
-        navVisible: false,
-      };
+        return {
+            navVisible: false,
+        };
     },
     methods: {
-      toggleNav() {
-        this.navVisible = !this.navVisible;
-      },
-      closeNav() {
-        this.navVisible = false;
-      },
+        toggleNav() {
+            this.navVisible = !this.navVisible;
+        },
+        closeNav() {
+            this.navVisible = false;
+        },
     },
-  };
-  </script>
-  
-  <style scoped>
-  
-  </style>
-  
+};
+</script>
+
+<style scoped>
+.navbar {
+    padding: 0px 0px;
+}
+
+.nav-link {
+    color: white;
+    padding: 0%;
+}
+
+.nav-item {
+    padding: 12px 24px;
+}
+
+.navbar-toggler {
+    color: white;
+}
+
+.nav-link:hover {
+    background-color: rgba(240, 224, 224, 0.922);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(240, 224, 224, 0.922);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    border-radius: 0;
+}
+
+.btn:hover {
+    background-color: rgba(202, 37, 37, 0.922);
+}
+</style>
